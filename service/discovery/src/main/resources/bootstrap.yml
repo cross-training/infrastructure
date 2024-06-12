@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: discovery-service
+  cloud:
+    config:
+      uri: ${CONFIG_SERVICE_URI}
+      username: ${CONFIG_SERVICE_USERNAME:devstore}
+      password: ${CONFIG_SERVICE_PASSWORD:secr3t}
+      enabled: true

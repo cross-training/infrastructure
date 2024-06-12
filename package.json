@@ -1,0 +1,9 @@
+{
+  "name": "infrastructure",
+  "version": "0.0.1",
+  "description": "Infrastructure services",
+  "scripts": {
+    "test": "exit 0"
+  },
+  "license": "ISC"
+}
