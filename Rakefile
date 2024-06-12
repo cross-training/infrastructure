@@ -2,9 +2,9 @@ require 'git'
 require 'rake'
 require 'json'
 
-task :test dos
+task :test do
   sh "cd service/config && gradle test"
-  sh "cd service/discovry && gradle test"
+  sh "cd service/discovery && gradle test"
 end
 
 task :create_version do

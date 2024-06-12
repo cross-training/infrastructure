@@ -1,83 +1,48 @@
-name: Build and Dockerize Services
+name: Build and Dockerize Config Service
 
 on:
   push:
     branches:
       - develop
     paths:
-      - 'service/**'
+      - 'service/config/**'
 
 jobs:
-  build-and-publish:
+  config-service-publish:
     runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        service:          
-          - config
-          - discovery
-          - gateway
 
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Check for changes in service directory
-      id: check-changes
-      uses: actions/github-script@v5
-      with:
-        script: |
-          const service = '${{ matrix.service }}';
-          const changedFiles = await github.paginate(
-            github.rest.repos.compareCommits,
-            {
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              base: context.payload.before,
-              head: context.sha
-            }
-          );
-          const serviceChanged = changedFiles.data.files.some(file => file.filename.startsWith(`services/${service}/`));
-          return serviceChanged;
-
-    - name: Set service path
-      id: set-path
-      run: echo "::set-output name=path::services/${{ matrix.service }}"
-
     - name: Read version from file
-      if: steps.check-changes.outputs.result == 'true'
       id: read-version
-      run: echo "::set-output name=version::$(cat ${{ steps.set-path.outputs.path }}/version)"
+      run: echo "::set-output name=version::$(cat service/config/version)"
 
     - name: Set up JDK 17
-      if: steps.check-changes.outputs.result == 'true'
       uses: actions/setup-java@v2
       with:
         distribution: 'adopt'
         java-version: '17'
 
-    # - name: Grant execute permission for gradlew
-    #   if: steps.check-changes.outputs.result == 'true'
-    #   run: chmod +x ${{ steps.set-path.outputs.path }}/gradlew
+    - name: Grant execute permission for gradlew
+      run: chmod +x service/config/gradlew
 
     - name: Build with Gradle
-      if: steps.check-changes.outputs.result == 'true'
       run: |
-        cd ${{ steps.set-path.outputs.path }}
+        cd service/config
         gradle clean build
 
     - name: Set up Docker Buildx
-      if: steps.check-changes.outputs.result == 'true'
       uses: docker/setup-buildx-action@v2
 
     - name: Log in to Docker Hub
-      if: steps.check-changes.outputs.result == 'true'
       uses: docker/login-action@v2
       with:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
 
     - name: Build and push Docker image
-      if: steps.check-changes.outputs.result == 'true'
       run: |
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/devstore-${{ matrix.service }}:${{ steps.read-version.outputs.version }} ${{ steps.set-path.outputs.path }}
-        docker push ${{ secrets.DOCKER_USERNAME }}/devstore-${{ matrix.service }}:${{ steps.read-version.outputs.version }}
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/config:${{ steps.read-version.outputs.version }} ./service/config
+        docker push ${{ secrets.DOCKER_USERNAME }}/config:${{ steps.read-version.outputs.version }}
