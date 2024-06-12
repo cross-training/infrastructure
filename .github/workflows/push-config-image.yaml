@@ -1,4 +1,4 @@
-name: Build and Dockerize Config Service
+name: Push Config Image
 
 on:
   push:
@@ -8,7 +8,7 @@ on:
       - 'service/config/**'
 
 jobs:
-  config-service-publish:
+  config-image-push:
     runs-on: ubuntu-latest
 
     steps:
