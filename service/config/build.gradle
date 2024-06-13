@@ -4,7 +4,7 @@ plugins {
 	id 'io.spring.dependency-management' version '1.1.5'
 }
 group = 'cloud.crosstraining.devstore.config'
-description = 'Devstore config server'
+description = 'config server'
 
 java {
 	sourceCompatibility = '17'

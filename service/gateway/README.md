@@ -9,32 +9,34 @@
 **Build:**
 
 ```shell
-./gradlew clean build
+gradle clean build
 ```
 
 **Run:**
 
 ```shell
-./gradlew bootRun --args='--spring.profiles.active=local'
+gradle bootRun
 ```
 
 **Test:**
 
-- [gateway server](http://localhost:8080/actuator/health)
+- [health](http://localhost:8080/actuator/health)
+- [prometheus](http://localhost:8080/actuator/prometheus)
+- [info](http://localhost:8080/actuator/info)
 
 ## Docker
 
 **Build & Push:**
 
 ```shell
-docker build -t flaviorita/devstore-gateway:0.0.3 .
-docker push flaviorita/devstore-gateway:0.0.3
+docker build -t flaviorita/devstore-gateway:latest .
+docker push flaviorita/devstore-gateway:latest
 ```
 
 **Run:**
 
 ```shell
-docker run -p 8080:8080 --network=devstore_backend -e SPRING_PROFILES_ACTIVE=docker -e DISCOVERY_SERVICE_URI=http://discovery-server:8761/eureka/ -e CONFIG_SERVICE_URI=http://config-server:8888 -e CONFIG_SERVICE_USERNAME=devstore -e CONFIG_SERVICE_PASSWORD=secr3t flaviorita/devstore-gateway:0.0.3
+docker run -p 8080:8080 --network=devstore_backend -e SPRING_PROFILES_ACTIVE=docker -e DISCOVERY_SERVICE_URI=http://discovery-server:8761/eureka/ -e CONFIG_SERVICE_URI=http://config-server:8888 -e CONFIG_SERVICE_USERNAME=devstore -e CONFIG_SERVICE_PASSWORD=secr3t flaviorita/devstore-gateway:latest
 ```
 
 ## References

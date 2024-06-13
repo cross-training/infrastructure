@@ -18,6 +18,8 @@
 ./gradlew bootRun
 ```
 
+- [catalo](http://localhost:8888/catalog-service/docker)
+
 **Test:**
 
 ```shell
