@@ -24,11 +24,6 @@ task :create_release do
   version = get_version
 
   # Create a new commit with the release version
-  commit_message = <<-MESSAGE
-chore: release #{version}
-
-#0
-MESSAGE
   git.add(all: true)
   git.commit('chore: release #{version}')  
   git.push('origin', current_branch)
