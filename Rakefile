@@ -24,7 +24,7 @@ task :create_release do
   version = get_version
 
   # Create a new commit with the release version
-  commit_message = <<-MESSAGE 
+  commit_message = <<-MESSAGE
 chore: release #{version}
 
 #0
