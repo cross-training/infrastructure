@@ -20,7 +20,10 @@ gradle bootRun
 
 **Test:**
 
-- [registry server](http://localhost:8761)
+- [discovery service](http://localhost:8761)
+- [health](http://localhost:8761/actuator/health)
+- [prometheus](http://localhost:8761/actuator/prometheus)
+- [info](http://localhost:8761/actuator/info)
 
 ## Docker
 
