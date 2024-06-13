@@ -30,7 +30,7 @@ chore: release #{version}
 #0
 MESSAGE
   git.add(all: true)
-  git.commit(commit_message)  
+  git.commit('chore: release #{version}')  
   git.push('origin', current_branch)
 
   # Create a new release branch and push it to the remote repository
