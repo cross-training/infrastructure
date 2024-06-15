@@ -15,9 +15,9 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v2
 
-    - name: Read version from file
-      id: read-version
-      run: echo "::set-output name=version::$(cat version)"
+    - name: Get version from package.json
+      id: get_version
+      run: echo "::set-output name=version::$(jq -r '.version' package.json)"
 
     - name: Set up JDK 17
       uses: actions/setup-java@v2

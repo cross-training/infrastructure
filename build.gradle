@@ -1,3 +1,6 @@
+
+import groovy.json.JsonSlurper
+
 buildscript {
     dependencyLocking {
         lockAllConfigurations()
@@ -16,20 +19,23 @@ buildscript {
     configurations.classpath.resolutionStrategy.cacheDynamicVersionsFor 0, 'minutes'
 }
 
-// Leer la versión desde el archivo version.txt
-def versionFile = file('version')
-if (versionFile.exists()) {
-    version = versionFile.text.trim()
-} else {
-    throw new GradleException("Version file not found: version")
+def getVersionFromPackageJson() {
+    def packageJsonFile = file('package.json')
+    if (packageJsonFile.exists()) {
+        def packageJson = new JsonSlurper().parseText(packageJsonFile.text)
+        return packageJson.version
+    } else {
+        throw new GradleException("package.json file not found")
+    }
 }
+
 
 apply plugin: 'org.springframework.boot'
 description = 'Cross training Infrastructure'
 
 allprojects {
     group = 'cloud.crosstraining.infra'
-    version = project.version
+    version =  getVersionFromPackageJson()
     afterEvaluate { project -> println "I'm configuring $project.name with version $project.version" }
 }
 
