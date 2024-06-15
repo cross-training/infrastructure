@@ -18,28 +18,13 @@ gradle clean build
 gradle bootRun
 ```
 
-- [catalog](http://localhost:8888/catalog-service/docker)
+- [catalog](http://localhost:8888/discovery-service/docker)
 
 **Test:**
 
 ```shell
-curl -u devstore:secr3t  http://localhost:8888/catalog-service/docker
-curl http://devstore:secr3t@localhost:8888/catalog-service/local
-```
-
-## Docker
-
-**Build & Push:**
-
-```shell
-docker build -t flaviorita/config:latest .
-docker push flaviorita/config:latest
-```
-
-**Run:**
-
-```shell
-docker run -p 8888:8080 -e CONFIG_SERVICE_USERNAME=devstore -e CONFIG_SERVICE_PASSWORD=secr3t flaviorita/config:latest
+curl -u devstore:secr3t  http://localhost:8888/discovery-service/docker
+curl http://devstore:secr3t@localhost:8888/discovery-servicelocal
 ```
 
 ## References
