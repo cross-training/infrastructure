@@ -1,4 +1,4 @@
-name: Api gateway service image push
+name: api gateway service image push
 
 on:
   push:

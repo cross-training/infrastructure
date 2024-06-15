@@ -1,4 +1,4 @@
-name: discovery service service image push
+name: discovery service image push
 
 on:
   push:
