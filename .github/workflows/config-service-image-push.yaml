@@ -1,14 +1,14 @@
-name: Config service image push
+name: config server image push
 
 on:
   push:
     branches:
       - develop
     paths:
-      - 'service/config/**'
+      - 'config-server/**'
 
 jobs:
-  config-service-image-push:
+  config-server-image-push:
     runs-on: ubuntu-latest
 
     steps:
@@ -17,7 +17,7 @@ jobs:
 
     - name: Read version from file
       id: read-version
-      run: echo "::set-output name=version::$(cat service/config/version)"
+      run: echo "::set-output name=version::$(cat version)"
 
     - name: Set up JDK 17
       uses: actions/setup-java@v2
@@ -26,14 +26,14 @@ jobs:
         java-version: '17'
 
     - name: Grant execute permission for gradlew
-      run: chmod +x service/config/gradlew
+      run: chmod +x config-server/gradlew
 
     - name: Build with Gradle
       run: |
-        cd service/config
+        cd config-server
         gradle clean build
 
-    - name: Set up Docker Buildx
+    - name: Set up Docker Build
       uses: docker/setup-buildx-action@v2
 
     - name: Log in to Docker Hub
@@ -44,5 +44,5 @@ jobs:
 
     - name: Build and push Docker image
       run: |
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/config:${{ steps.read-version.outputs.version }} ./service/config
-        docker push ${{ secrets.DOCKER_USERNAME }}/config:${{ steps.read-version.outputs.version }}
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/config-server:${{ steps.read-version.outputs.version }} ./config-server
+        docker push ${{ secrets.DOCKER_USERNAME }}/config-server:${{ steps.read-version.outputs.version }}

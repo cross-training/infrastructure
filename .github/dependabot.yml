@@ -1,16 +1,16 @@
 version: 2
 updates:
-  - directory: /service/config
+  - directory: /config
     package-ecosystem: gradle
     target-branch: develop
     schedule:
       interval: weekly
-  - directory: /service/discovery
+  - directory: /discovery
     package-ecosystem: gradle
     target-branch: develop
     schedule:
       interval: weekly
-  - directory: /service/gateway
+  - directory: /gateway
     package-ecosystem: gradle
     target-branch: develop
     schedule:

@@ -1,0 +1,17 @@
+pluginManagement {
+    repositories {
+        gradlePluginPortal()
+    }
+}
+
+plugins {
+    id 'com.gradle.develocity' version '3.17.4'
+    id 'io.spring.ge.conventions' version '0.0.17'
+}
+
+rootProject.name = 'crosstraining-infra'
+
+include 'config-server'
+include 'discovery-service'
+include 'api-gateway'
+//include 'test-common'
