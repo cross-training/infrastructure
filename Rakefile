@@ -3,8 +3,7 @@ require 'rake'
 require 'json'
 
 task :test do
-  sh "cd service/config && gradle test"
-  sh "cd service/discovery && gradle test"
+  sh "gradle test"
 end
 
 task :create_version do
