@@ -44,5 +44,5 @@ jobs:
 
     - name: Build and push Docker image
       run: |
-        docker build -t ${{ secrets.DOCKER_USERNAME }}/discovery-service:${{ steps.read-version.outputs.version }} ./discovery-service
-        docker push ${{ secrets.DOCKER_USERNAME }}/discovery-service:${{ steps.read-version.outputs.version }}
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/discovery-service:${{ steps.get_version.outputs.version }} ./discovery-service
+        docker push ${{ secrets.DOCKER_USERNAME }}/discovery-service:${{ steps.get_version.outputs.version }}
