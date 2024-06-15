@@ -12,7 +12,7 @@ task :create_version do
 end
 
 def get_version
-  JSON.parse(File.read('package.json'))['version']
+  return JSON.parse(File.read('package.json'))['version']
 end
 
 
