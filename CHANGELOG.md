@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.13](https://github.com/cross-training/infrastructure/compare/v0.0.12...v0.0.13) (2024-06-15)
+
+
+### Bug Fixes
+
+* **ci:** bugfix in get version on discovery service github workflow ([a60ae9b](https://github.com/cross-training/infrastructure/commit/a60ae9bc59222ef4668870bf30f999de42be2d63)), closes [#2](https://github.com/cross-training/infrastructure/issues/2)
+
 ### [0.0.12](https://github.com/cross-training/infrastructure/compare/v0.0.11...v0.0.12) (2024-06-15)
 
 ### [0.0.11](https://github.com/cross-training/infrastructure/compare/v0.0.10...v0.0.11) (2024-06-15)
