@@ -1,6 +1,5 @@
 
 FROM khipu/openjdk17-alpine
-
 LABEL maintainer="Flavio Lionel Rita <flaviolrita@proton.me>"
 LABEL description="Config server for the cross training services"
 
