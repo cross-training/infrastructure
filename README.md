@@ -16,14 +16,12 @@ gem install rake git
 ## Services
 
 - Infrastructure:
-  - [Discovery Server](./service/discovery/README.md): Para el registrar y descubrir los servicios
-  - [Config Server](./service/config/README.md): Para la configuración de los servicios
-  - [Load Balancer](./service/balancer/README.md): Para el balanceo de carga
-  - [Circuit Breaker](./service/circuit-breaker/README.md): Para la tolerancia a fallos
-  - [Api Gateway](./service/gateway/README.md): Para la seguridad y el enrutamiento
-  - [Log Center](./service/logging/README.md): Para el Monitoreo de los servicios
-- Database
-  - [PostgreSQL](./services/database/postgresql/README.md)
+  - [Discovery service](./discovery-service/README.md): Para el registrar y descubrir los servicios
+  - [Config Server](./config-serever/README.md): Para la configuración de los servicios
+  - [Load Balancer](./load-balancer/README.md): Para el balanceo de carga
+  - [Circuit Breaker](./circuit-breaker/README.md): Para la tolerancia a fallos
+  - [Api Gateway](./api-gateway/README.md): Para la seguridad y el enrutamiento
+  - [Log Center](./logging/README.md): Para el Monitoreo de los servicios
 - Monitoring:
   - Prometheus
   - Grafana
