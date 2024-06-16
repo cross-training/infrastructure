@@ -1,6 +1,6 @@
 {
   "name": "infrastructure",
-  "version": "0.0.18",
+  "version": "0.0.19",
   "description": "Infrastructure services",
   "scripts": {
     "test": "exit 0"

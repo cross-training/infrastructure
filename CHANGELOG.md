@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.19](https://github.com/cross-training/infrastructure/compare/v0.0.18...v0.0.19) (2024-06-16)
+
+
+### Bug Fixes
+
+* solve config server configuration ([0bf1b60](https://github.com/cross-training/infrastructure/commit/0bf1b6066654a21a033e8bed07c1e258920e884b)), closes [#0](https://github.com/cross-training/infrastructure/issues/0)
+
 ### [0.0.18](https://github.com/cross-training/infrastructure/compare/v0.0.17...v0.0.18) (2024-06-16)
 
 ### [0.0.17](https://github.com/cross-training/infrastructure/compare/v0.0.16...v0.0.17) (2024-06-15)
