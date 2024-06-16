@@ -1,51 +1,28 @@
-server.port: 8888
-spring.cloud.config.server.git.uri: https://github.com/spring-cloud-samples/config-repo
-
+server.port: ${PORT:8888}
 spring:
-  application:
-    name: config-server
-
+ application.name: config-server
+ cloud:
+   config:
+     server:
+       git:
+         uri: ${CONFIG_SERVICE_REPO_URI}
+         search-paths: ${CONFIG_SERVICE_REPO_PATHS}
+         default-label: ${CONFIG_SERVICE_REPO_LABEL}
+         username: ${CONFIG_SERVICE_REPO_USERNAME}
+         password: ${CONFIG_SERVICE_REPO_PASSWORD}
+ security:
+   user:
+     name: ${CONFIG_SERVICE_USERNAME}
+     password: ${CONFIG_SERVICE_PASSWORD}
 management:
-  tracing:
-    sampling:
-      probability: 1.0
-#server:
-#  port: ${PORT:8888}
-#spring:
-#  application:
-#    name: config-server
-#  cloud:
-#    config:
-#      server:
-#        git:
-#          uri: ${CONFIG_SERVICE_REPO_URI}
-#          search-paths: ${CONFIG_SERVICE_REPO_PATHS}
-#          default-label: ${CONFIG_SERVICE_REPO_LABEL}
-#          username: ${CONFIG_SERVICE_REPO_USERNAME}
-#          password: ${CONFIG_SERVICE_REPO_PASSWORD}
-#  security:
-#    user:
-#      name: ${CONFIG_SERVICE_USERNAME}
-#      password: ${CONFIG_SERVICE_PASSWORD}
-#management:
-#  endpoints:
-#    web:
-#      exposure:
-#        include: "health,info,prometheus"
-#  endpoint:
-#    health:
-#      show-details: always
-#  info:
-#    env:
-#      enabled: true
-#  tracing:
-#    sampling:
-#      probability: 1.0
-#info:
-#  app:
-#    name: Config Server
-#    description: This is config service for Cross training
-#    version: ${VERSION}
-#  company:
-#    name: Cross Training
-#    department: IT
+ endpoints.web.exposure.include: "health,info,prometheus"
+ endpoint.health.show-details: always
+ info.env.enabled: true
+ tracing.sampling.probability: 1.0
+info:
+ app:
+   name: Config Server
+   description: This is config service for Cross training
+ company:
+   name: Cross Training
+   department: IT

@@ -23,8 +23,8 @@ gradle bootRun
 **Test:**
 
 ```shell
-curl -u devstore:secr3t  http://localhost:8888/discovery-service/docker
-curl http://devstore:secr3t@localhost:8888/discovery-service/local
+curl -u devstore:secr3t  http://localhost:8888/catalog-service/docker
+curl http://devstore:secr3t@localhost:8888/catalog-service/local
 ```
 
 ## References

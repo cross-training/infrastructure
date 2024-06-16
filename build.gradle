@@ -83,7 +83,12 @@ subprojects {
 
     dependencies {        
         implementation platform("org.springframework.boot:spring-boot-dependencies:${springBootVersion}")
-        implementation platform("org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}")        
+        implementation platform("org.springframework.cloud:spring-cloud-dependencies:${springCloudVersion}")
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+        implementation 'org.springframework.boot:spring-boot-starter-actuator'       
+        implementation 'io.micrometer:micrometer-registry-prometheus'
+        implementation 'io.micrometer:micrometer-tracing-bridge-brave'
+        implementation 'io.zipkin.reporter2:zipkin-reporter-brave'        
         testImplementation 'org.springframework.boot:spring-boot-starter-test'
         // JSR-305 only used for non-required meta-annotations
         optionalApi 'com.google.code.findbugs:jsr305:latest.release'
