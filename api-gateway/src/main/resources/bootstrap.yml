@@ -4,7 +4,5 @@ spring:
   cloud:
     config:
       uri: ${CONFIG_SERVICE_URI}
-      username: ${CONFIG_SERVICE_USERNAME}
-      password: ${CONFIG_SERVICE_PASSWORD}
     compatibility-verifier:
       enabled: false

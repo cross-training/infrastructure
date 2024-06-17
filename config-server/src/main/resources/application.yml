@@ -10,10 +10,10 @@ spring:
          default-label: ${CONFIG_SERVICE_REPO_LABEL}
          username: ${CONFIG_SERVICE_REPO_USERNAME}
          password: ${CONFIG_SERVICE_REPO_PASSWORD}
- security:
-   user:
-     name: ${CONFIG_SERVICE_USERNAME}
-     password: ${CONFIG_SERVICE_PASSWORD}
+#  security:
+#    user:
+#      name: ${CONFIG_SERVICE_USERNAME}
+#      password: ${CONFIG_SERVICE_PASSWORD}
 management:
  endpoints.web.exposure.include: "health,info,prometheus"
  endpoint.health.show-details: always
