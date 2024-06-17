@@ -30,4 +30,5 @@ curl http://devstore:secr3t@localhost:8888/catalog-service/local
 ## References
 
 - [tutorial](https://www.youtube.com/watch?v=ydtswONk9TE&list=PLxy6jHplP3Hi_W8iuYSbAeeMfaTZt49PW&index=12)
+- [tutorial](https://hackmd.io/@6RRl2AU-S2ydlMVeqlhD7g/SJW0ulcY9)
   - [github](https://github.com/digitallab-academy/ms-course-youtube)
