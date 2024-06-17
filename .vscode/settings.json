@@ -53,6 +53,7 @@
         "usename",
         "xaxis",
         "yaxes",
+        "zipkin",
         "Zipkin"
     ],
     "java.configuration.updateBuildConfiguration": "disabled",
